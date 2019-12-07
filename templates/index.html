@@ -2,16 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style> 
+body {
+  background: url('https://www.androidpolice.com/wp-content/uploads/2019/08/google-play-music-hero.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+  </style>
 </head>
 <body>
   <center>
-    <h1>Google Play Music Wrapped</h1>
+    <h1 class="display-1">
+      GPM Wrapped
+      <br>
+      <small class="text-muted">
+      Google Play listening stats
+      </small>
+    </br>
+  </h1>
   </center>
+  <center>
+  <p class="lead">Getting your top played artists of the year is easy.</p>
+</center>
   <center>
   <form action = "http://localhost:8080/bar" method = "POST" 
          enctype = "multipart/form-data">
          <input type = "file" name = "file" />
+         <br>
          <input type = "submit"/>
+       </br>
   </form>
   </center>
 </body>
