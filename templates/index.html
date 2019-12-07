@@ -11,10 +11,21 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+.flex { 
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Optional */
+}
+.opaque {
+background-color: rgba(255, 230, 204, .7);
+}
   </style>
+}
 </head>
 <body>
-  <center>
+<div class="row flex">
+    <span>
+      <div class="opaque">
     <h1 class="display-1">
       GPM Wrapped
       <br>
@@ -23,18 +34,32 @@ body {
       </small>
     </br>
   </h1>
-  </center>
-  <center>
-  <p class="lead">Getting your top played artists of the year is easy.</p>
-</center>
-  <center>
+</div>
+</span>
+</div>
+  <p class="lead flex">Getting your top played artists of the year is easy.</p>
+  <div class="flex">
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item opaque flex"><strong>1.</strong>&nbsp;Click&nbsp;<a href = "https://takeout.google.com/?pli=1">  here </a>&nbsp;to request your data from Google</li>
+  <li class="list-group-item opaque flex"><strong>2.</strong>&nbsp;Deselect all except "My Activity"</li>
+  <li class="list-group-item opaque flex"><strong>3.</strong>&nbsp;Deselect all Activity content options except Google Play Music</li>
+  <li class="list-group-item opaque flex"><strong>4.</strong>&nbsp;Select JSON format</li>
+  <li class="list-group-item opaque flex"><strong>5.</strong>&nbsp;Download, unzip and upload below!</li>
+</ul>
+</div>
+  <div class="flex">
   <form action = "http://localhost:8080/bar" method = "POST" 
          enctype = "multipart/form-data">
          <input type = "file" name = "file" />
-         <br>
+       </div>
+       <br>
+         <div class="flex">
          <input type = "submit"/>
-       </br>
+     </div>
+   </div>
   </form>
-  </center>
+</span>
+</div>
+</div>
 </body>
 </html>
