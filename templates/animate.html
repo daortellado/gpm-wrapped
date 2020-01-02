@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8" />
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+  var images = [
+          {% for item in src_list %}
+           "{{ item }}",
+          {% endfor %}];
+  var labels = [
+          {% for item in labels %}
+           "{{ item }}",
+          {% endfor %}
+  ];
+    function buildImage(index) {
+      var img = document.createElement('img');
+      var label = document.createElement('P');
+      label.setAttribute("class", "p-height" );
+      label.innerHTML = labels[index];
+      img.src = images[index];
+      document.getElementsByClassName("stats__item-num")[index].appendChild(label);
+      document.getElementsByClassName("stats__item-num")[index].appendChild(img);
+    };
+var data = [
+{% for value1, value2, value3 in labels|zip(values, song_list) %}
+    {{'{'}} goals: '{{ value1 }}', avg: '{{ value2 }}', games: '{{ value3 }}', source: 'back to summary' {{'}'}},
+{% endfor %} 
+];
+</script>
+</head>
+<body>
+<main class="stats">
+  <header class="stats__header">
+    <div class="stats__header-num">
+      <p>2019</p>
+    </div>
+    <div class="stats__header-name">
+      <p>Top<span>Artists</span></p>
+    </div>
+  </header>
+  <ul class="stats__list">
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(0)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(1)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(2)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(3)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(4)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(5)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(6)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+    <li class="stats__item">
+      <p class="stats__item-num"><script>buildImage(7)</script></p>
+      <div class="stats__item-bar"></div>
+    </li>
+  </ul>
+  <div class="stats__overlay">
+    <div class="stats__overlay-back">
+      <svg fill="white" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><path d="M30 16.5H11.74l8.38-8.38L18 6 6 18l12 12 2.12-2.12-8.38-8.38H30v-3z"></path></svg>
+      <p id="year"></p>
+    </div>
+    <div class="stats__overlay-avg">
+      <p class="avg" id="avg"></p>
+      <p>Plays</p>
+    </div>
+    <div class="stats__overlay-info">
+      <div class="stats__overlay-info-half">
+        <p id="goals"></p>
+        <p>Artist</p>
+      </div>
+      <div class="stats__overlay-info-half">
+        <p id="games"></p>
+        <p>Top Song</p>
+      </div>
+    </div>
+  </div>
+</main>
+  <script type="text/javascript" src= "{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
