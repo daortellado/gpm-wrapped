@@ -94,4 +94,4 @@ def img():
 	return render_template('animate.html', title='Top Artists - 2019', src_list=src_list, labels=labels, values=values, song_list=song_list)
 	
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run()
