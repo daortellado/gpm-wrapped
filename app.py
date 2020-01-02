@@ -68,7 +68,7 @@ def img():
 		labels += [i[0]]
 		searches += [i[0]+' artist band rapper']
 		values += [i[1]]
-	topCount = dict((k, v) for k, v in topSongs.iteritems() if k[0] in labels)
+	topCount = dict((k, v) for k, v in topSongs.items() if k[0] in labels)
 	topTup = list(key+(val,) for key,val in topCount.items())
 	topTup = sorted(topTup, key = itemgetter(0,2), reverse = True)
 	for k, g in groupby(topTup, lambda x: x[0]):
