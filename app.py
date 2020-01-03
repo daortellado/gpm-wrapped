@@ -85,6 +85,7 @@ def img():
 		URL = "https://www.google.com/search"
 		r = requests.get(URL, params = x) 
 		soup = BeautifulSoup(r.content, 'html.parser') 
+		print soup
 		table = soup.find('table', attrs = {'class':'images_table'})
 		img = table.find('img')
 		src = img.get('src')
