@@ -83,13 +83,13 @@ def img():
 		parameters += [{"tbm" : "isch", "q" : i}]
 	def srcGetter(x):
 		URL = "https://www.google.com/search"
-		r = requests.get(URL, params = x) 
-		soup = BeautifulSoup(r.content, 'html.parser') 
+		r = requests.get(URL, params = x)
+		soup = BeautifulSoup(r.content, 'html.parser')
 		print soup
-		table = soup.find('table', attrs = {'class':'images_table'})
-		img = table.find('img')
-		src = img.get('src')
-		return src
+		# table = soup.find('table', attrs = {'class':'images_table'})
+		# img = table.find('img')
+		# src = img.get('src')
+		# return src
 	for i in parameters:
 		src_list += [srcGetter(i)]
 	return render_template('animate.html', title='Top Artists - 2019', src_list=src_list, labels=labels, values=values, song_list=song_list)
