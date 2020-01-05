@@ -22,6 +22,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
   return render_template('index.html')
 
+@app.errorhandler(500)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('error.html'), 500
+
 # @app.route('/bar', methods = ['GET', 'POST'])
 # def bar():
 # 	if request.method == 'POST':
