@@ -7,7 +7,7 @@
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript">
-  var images = [
+  var arr = [
           {% for item in src_list %}
            "{{ item }}",
           {% endfor %}];
@@ -16,12 +16,19 @@
            "{{ item }}",
           {% endfor %}
   ];
+  var limit = '/images/branding/searchlogo/1x/googlelogo_desk_heirloom_color_150x55dp.gif';
+$.each(arr, function(k,v) {
+  if (v === limit) {
+       arr[k] = 'https://img.utdstc.com/icons/sound-search-for-google-play-android.png:s'; 
+  }
+  console.log( arr[k] ); 
+});
     function buildImage(index) {
       var img = document.createElement('img');
       var label = document.createElement('P');
       label.setAttribute("class", "p-height" );
       label.innerHTML = labels[index];
-      img.src = images[index];
+      img.src = arr[index];
       document.getElementsByClassName("stats__item-num")[index].appendChild(label);
       document.getElementsByClassName("stats__item-num")[index].appendChild(img);
     };
